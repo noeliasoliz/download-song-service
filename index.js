@@ -14,7 +14,7 @@ app.get("/api/hola", (req, res) => {
 });
 
 // Ruta que recibe un código como parámetro en la URL
-app.get("/api/donwload/:codigo", (req, res) => {
+app.get("/api/download/:codigo", (req, res) => {
     const filePath = path.join(__dirname, "songs", "NoTVaGustar.mp3");
     res.sendFile(filePath);
   });
