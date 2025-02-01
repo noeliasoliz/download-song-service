@@ -1,4 +1,27 @@
-version: '1'
 
 
+version: '3.8'
+
+services:
+  downloadsong-service:
+    image: andreasoliz17/downloadsong:1.0
+    container_name: downloadsong-service
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=production
+    command: ["node", "index.js"]
+
+listsong-service:
+    image: d3nnys/song-service:latest
+    container_name: listsong-service
+    ports:
+      - "9000:8000"
+    volumes:
+      - .:/listsongservice
+    environment:
+      - APP_ENV=production
+    command: ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 
